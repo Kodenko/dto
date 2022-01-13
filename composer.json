@@ -1,5 +1,5 @@
 {
-  "name": "dto/dto",
+  "name": "kodenko/dto",
   "description": "Use the JSON Schema spec to define Data Transfer Objects (DTOs)",
   "type": "library",
   "license": "MIT",
