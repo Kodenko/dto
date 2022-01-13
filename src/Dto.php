@@ -130,7 +130,7 @@ class Dto extends \ArrayObject implements DtoInterface
      * @throws InvalidArrayOperationException
      * @throws InvalidIndexException
      */
-    final public function offsetSet($index, $value)
+    final public function offsetSet($index, $value) :void
     {
         // Integers + null only?
         if ($this->storage_type !== 'array') {
@@ -177,7 +177,7 @@ class Dto extends \ArrayObject implements DtoInterface
      * @throws InvalidDataTypeException
      * @param mixed $val
      */
-    public function append($val)
+    public function append($val) :void
     {
         if (!$this->regulator->isArray()) {
             throw new InvalidDataTypeException('Array operations are not allowed by the current schema.');
@@ -216,7 +216,7 @@ class Dto extends \ArrayObject implements DtoInterface
         return $this->offsetUnset($index);
     }
 
-    final public function offsetUnset($index)
+    final public function offsetUnset($index) :void
     {
         parent::offsetUnset($index);
 
@@ -227,7 +227,7 @@ class Dto extends \ArrayObject implements DtoInterface
         return $this->offsetExists($index);
     }
 
-    final public function offsetExists($index)
+    final public function offsetExists($index) :bool
     {
         return parent::offsetExists($index);
     }
@@ -239,7 +239,7 @@ class Dto extends \ArrayObject implements DtoInterface
      *
      * @throws InvalidIndexException
      */
-    final public function offsetGet($index)
+    final public function offsetGet($index) :mixed
     {
         if (parent::offsetExists($index)) {
             return parent::offsetGet($index);
@@ -325,7 +325,8 @@ class Dto extends \ArrayObject implements DtoInterface
     /**
      * @return string
      */
-    final public function serialize() {
+    final public function serialize() :string
+    {
         return $this->toJson();
     }
 
